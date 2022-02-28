@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            color: red;
+           
+        }
+        .green{
+            color:green;
+            border: 1px solid green
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div style = "justify-content: center;">
+            <h1>REGISTRATION FORM </h1>
+            <form>
+                <label>USER NAME</label><br>
+                <input type="text" id="username" name="username" placeholder="Name" onkeyup="event.preventDefault();return userValidation()" autocomplete="off"><br>
+                <small id="u1" class=""></small><br><br>
+                <label>PASSWORD</label><br>
+                <input type="password" id="pwd" name="pwd" placeholder="password" onkeyup="event.preventDefault();return pwdValidation();" autocomplete="off"><br>
+                <small id="p1"></small><br><br>
+                <label>CONFIRM PASSWORD</label><br>
+                <input type="text" id="cpwd" name="cpwd" placeholder="Confirm password" onkeyup="event.preventDefault();return cpwdValidation();" autocomplete="off"><br>
+                <small id="p2"></small><br><br>
+                <label>EMAIL ID</label><br>
+                <input type="text" id="email" name="email" placeholder="Email" onkeyup="event.preventDefault();return emailValidation();"autocomplete="off"><br>
+                <small id="em" class=""></small><br><br>
+                <label>PHONE NUMBER</label><br>
+                <input type="number" id="mobile" name="mobile" placeholder="Mobile" onkeyup="mobilenoValidation();event.preventDefault()" ><br>
+                <small id="no" class=""></small><br><br>
+                <button onclick="event.preventDefault();Validate();">Submit</button>
+            </form>
+            
+        </div>
+    </section>
+
+    <script> 
+        var lo = 0;
+        function userValidation()
+        {
+            let username = document.getElementById("username").value;
+            let u = document.getElementById("u1")       
+          if(username.trim().length==0)
+          {
+            u.innerHTML = "Username cannot be empty";  
+            document.getElementById('username').focus()
+            u.setAttribute('class','red')
+            return false            
+          }
+          else if(username.trim().length<3 || username.trim().length>15)           
+          {
+            u.innerHTML = "Username must be grater than 3 character and less than 15 character";
+            document.getElementById('username').focus()
+            u.setAttribute('class','red')
+            return false  
+          }
+          else if(!isNaN(username.trim()))          
+          {
+            u.innerHTML = "Please enter only character";
+            document.getElementById('username').focus()
+            u.setAttribute('class','red')
+            return false  
+          }
+          else
+           {
+              for(let i=0;i<username.length;i++)
+              {
+                  if(!isNaN(username[i]))
+                  {
+                    u.innerHTML = "Please enter only character";
+                    document.getElementById('username').focus()
+                    u.setAttribute('class','red')
+                    return false  
+                  }
+                  else
+                  {
+                    u.innerHTML = "valid username"; 
+                    u.setAttribute('class','green')
+                  }
+              }
+            
+            }
+         
+        }
+
+        function pwdValidation(){
+
+            let pwd = document.getElementById('pwd').value;
+            let p1 = document.getElementById('p1')
+            pattern = /^((?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{6,})+$/          
+            if(pwd.trim().length==0) 
+          {
+            p1.innerHTML = "password cannot be empty";  
+            document.getElementById('pwd').focus()
+            p1.setAttribute('class','red')
+            return false            
+          }
+          else if(!pattern.test(pwd.trim()))
+          {
+            p1.innerHTML = "password must have atleast one captital latter and one small latter and one digit and one special character";  
+            document.getElementById('pwd').focus()
+            p1.setAttribute('class','red')
+            return false            
+          }          
+          else{
+            p1.innerHTML = "valid password"; 
+            p1.setAttribute('class','green')
+          }     
+
+          
+        }
+
+        function cpwdValidation()
+        {
+            let pwd = document.getElementById('pwd').value;
+            let cpwd = document.getElementById('cpwd').value;
+            let p2 = document.getElementById('p2')
+            if(cpwd.trim().length==0)
+            {
+            p2.innerHTML = "password cannot be empty";  
+            document.getElementById('cpwd').focus()
+            p2.setAttribute('class','red')
+            return false            
+            }
+            else if(pwd != cpwd)
+            {
+            p2.innerHTML = "password and confirm password not match";  
+            document.getElementById('cpwd').focus()
+            p2.setAttribute('class','red')
+            return false            
+            }
+            else{
+            p2.innerHTML = "password and confirm password matched"; 
+            p2.setAttribute('class','green')
+          }     
+        }
+
+        function emailValidation()
+        {
+            let email = document.getElementById('email').value;
+            let em = document.getElementById('em')
+            pattern = /^([A-za-z0-9_.])+\@([a-z])+\.([a-z])+$/
+            if(email.trim().length==0)
+            {
+            em.innerHTML = "email cannot be empty";  
+            document.getElementById('email').focus()
+            em.setAttribute('class','red')
+            return false            
+            }
+            else if(!pattern.test(email))
+            {
+            em.innerHTML = "PLEASE FILL THE CORRECT EMAIL FORMAT";  
+            document.getElementById('email').focus()
+            em.setAttribute('class','red')
+            return false          
+            }
+            else{
+              em.innerHTML = "Valid email format"; 
+              em.setAttribute('class','green');
+            }
+        }
+
+        function mobilenoValidation()
+        {
+            let mobile = document.getElementById('mobile').value;
+            let no = document.getElementById('no')
+
+            number = /^([0-9]{10})+$/
+            if(mobile.trim().length==0)
+            {
+            no.innerHTML = "password cannot be empty";  
+            document.getElementById('mobile').focus()
+            no.setAttribute('class','red')
+            return false            
+            }
+            else if(!number.test(mobile))
+            {
+            no.innerHTML = "Use only 10 digit numbers";  
+            document.getElementById('mobile').focus()
+            no.setAttribute('class','red')
+            return false
+            }
+            else{
+              no.innerHTML = "valid phonenumber"; 
+              no.setAttribute('class','green')
+            }
+        }  
+        function clear(){
+          document.getElementById("username").value="";
+            document.getElementById('pwd').value="";
+            document.getElementById('cpwd').value="";
+            document.getElementById('email').value="";
+            document.getElementById('mobile').value="";
+        }       
+       
+        function Validate(){
+          
+          let username = document.getElementById("username").value;
+          let pwd = document.getElementById('pwd').value;
+          let cpwd = document.getElementById('cpwd').value;
+          let email = document.getElementById('email').value;
+          let mobile = document.getElementById('mobile').value;
+          let x = document.getElementsByTagName('small')
+          if(true)
+          if(username.trim()==""){
+            x[0].innerHTML="username required"
+            x[0].setAttribute('class','red')            
+          }
+          if(pwd.trim()==""){
+            x[1].innerHTML="password required"
+            x[1].setAttribute('class','red')            
+          }
+          if(cpwd.trim()==""){
+            x[2].innerHTML="confirm password required"
+            x[2].setAttribute('class','red')            
+          }
+          if(email.trim()==""){
+            x[3].innerHTML="email id required"
+            x[3].setAttribute('class','red')            
+          }
+          if(mobile.trim()==""){
+            x[4].innerHTML="mobile number required"
+            x[4].setAttribute('class','red')            
+          }
+          
+          if ((username.trim()!=="") && (pwd.trim()!="") && (cpwd.trim()!=="") && (email.trim()!=="") && (mobile.trim()!==""))
+            {     
+              
+              function myFunction(){
+              lo +=1;
+              return lo
+               }
+
+              let userid="user"+myFunction();
+              var user = {
+                  username : username,
+                  password: pwd,
+                  email : email,
+                  mobileNo: mobile 
+                }
+              var json = JSON.stringify(user);
+              localStorage.setItem(userid,json);
+              console.log("user details added in local storage");
+              console.log(user)
+              clear();           
+    
+          }
+            
+           
+        }
+              
+    </script>
+</body>
+</html>
