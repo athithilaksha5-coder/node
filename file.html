@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body >
+    <section>
+    <h1>Node.js</h1>
+    <h2>Introduction to Node.js</h2>
+    <p>Node.js is a very powerful JavaScript-based platform built on Google Chrome's JavaScript V8 Engine. It is used to develop I/O intensive web applications like video streaming sites, single-page applications, and other web applications. Node.js is open source, completely free, and used by thousands of developers around the world</p>
+     <h2>How to install Node.js</h2>
+     <p>Download latest version of Node.js installable archive file from Node.js Downloads. At the time of writing this tutorial, following are the versions available on different OS.</p>
+    <table border="3">
+        <tr>
+            <th style="background-color: gray;">OS</th>
+            <th style="background-color: gray;">Archive name</th>
+            
+        </tr>
+        <tr>
+            <td>Windows</td>
+            <td>node-v6.3.1-x64.msi</td>            
+        </tr>
+        <tr>
+            <td>Linux</td>
+            <td>node-v6.3.1-linux-x86.tar.gz</td>
+        </tr>
+        <tr>
+            <td>Mac</td>
+            <td>node-v6.3.1-darwin-x86.tar.gz</td>
+        </tr>
+        <tr>
+            <td>SunOS</td>
+            <td>node-v6.3.1-sunos-x86.tar.gz</td>
+        </tr>
+    </table>
+</section>
+<section>
+    <h2>Installation on UNIX/Linux/Mac OS X, and SunOS</h2>
+    <p>Based on your OS architecture, download and extract the archive node-v6.3.1-osname.tar.gz into /tmp, and then finally move extracted files into /usr/local/nodejs directory. For example:</p>
+    <div style="background-color: grey;  padding: 10px; color: white;">
+        <p>$ cd /tmp</p>
+        <p>$ wget http://nodejs.org/dist/v6.3.1/node-v6.3.1-linux-x64.tar.gz</p>
+        <p>$ tar xvfz node-v6.3.1-linux-x64.tar.gz</p>
+        <p>$ mkdir -p /usr/local/nodejs</p>
+        <p>$ mv node-v6.3.1-linux-x64/* /usr/local/nodejs</p>
+    </div>
+    <p>Add /usr/local/nodejs/bin to the PATH environment variable.</p>
+    <table border="3">
+        <tr>
+            <th style="background-color: gray;">OS</th>
+            <th style="background-color: gray;">Output</th>
+            
+        </tr>
+        <tr>
+            <td>Linux</td>
+            <td>export PATH=$PATH:/usr/local/nodejs/bin</td>            
+        </tr>
+        <tr>
+            <td>Mac</td>
+            <td>export PATH=$PATH:/usr/local/nodejs/bin</td>
+        </tr>
+        <tr>
+            <td>Mac</td>
+            <td>node-v6.3.1-darwin-x86.tar.gz</td>
+        </tr>
+        <tr>
+            <td>FreeBSD</td>
+            <td>export PATH=$PATH:/usr/local/nodejs/bin</td>
+        </tr>
+    </table>
+</section>
+<section>
+    <h2>Installation on Windows</h2>
+    <p>Use the MSI file and follow the prompts to install the Node.js. By default, the installer uses the Node.js distribution in C:\Program Files\nodejs. The installer should set the C:\Program Files\nodejs\bin directory in window's PATH environment variable. Restart any open command prompts for the change to take effect.
+    </p>
+    <h2>Verify installation: Executing a File </h2>
+    <p>Create a js file named main.js on your machine (Windows or Linux) having the following code.</p>
+    <p style="background-color: grey; padding: 10px; color: white;">/* Hello, World! program in node.js */<br>
+        console.log("Hello, World!")</p>
+        <p>>Now execute main.js file using Node.js interpreter to see the result</p>
+
+        <p style="background-color: grey;padding: 10px; color: white;">$ node main.js</p>
+       <p> If everything is fine with your installation, this should produce the following result −</p>
+
+       <p style="background-color: grey; padding: 10px; color: white;"> Hello, World!</p>
+</section> 
+
+</body>
+</html>
